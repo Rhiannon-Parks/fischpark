@@ -1,38 +1,173 @@
-﻿@{
+﻿@model FischPark.Models.PkmnBiomesViewModel
+
+@{
     ViewBag.Title = "PKMN Biomes";
 }
 
-<h2>PKMN Biomes</h2>
-<p>A record of spawns on a single spawnpoint in Pokemon Go, as recorded when I happen to check the spawnpoint.</p>
+<style type="text/css"> table.table tr td {
+        vertical-align: middle
+    }
+</style>
 
+<h1>PKMN Biomes</h1>
+<h4>A record of spawns on a single spawnpoint in Pokemon Go, as recorded when I happen to check the spawnpoint.</h4>
+
+
+<h2>Top 3 Spawns by Weather</h2>
 <div class="row">
-    <div class="table-responsive col-lg-6">
-        <table class="table table-striped">
+    <div class="table-responsive col-md-4">
+        <img src="https://raw.githubusercontent.com/apavlinovic/pokemon-go-imagery/42a8d6aaad6d95ef0753fe80b4ddd168dd05908e/images/weatherIcon_large_clearDay.png" width="60" height="60"><b> Clear</b>
+        <table class="table table-striped table-condensed">
             <thead>
                 <tr>
                     <th>Species</th>
                     <th>Count</th>
-                    <th>Percentage</th>
                 </tr>
             </thead>
             <tbody>
+                @for (int i = 0; i < 3; i++)
+                {
                 <tr>
-                    <td>Venonat</td>
-                    <td>99</td>
-                    <td>X%</td>
+                    <td><img src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/@(Model.clearList[i].Pokemon.ToLower()).png" width="40" height="40" /> @Model.clearList[i].Pokemon</td>
+                    <td>@Model.clearList[i].Count</td>
                 </tr>
-                <tr>
-                    <td>Oddish</td>
-                    <td>23</td>
-                    <td>X%</td>
-                </tr>
-                <tr>
-                    <td>Skitty</td>
-                    <td>0</td>
-                    <td>0%</td>
-                </tr>
+                }
             </tbody>
         </table>
     </div>
-    <div class="col-lg-6"></div>
+
+    <div class="table-responsive col-md-4">
+        <img src="https://raw.githubusercontent.com/apavlinovic/pokemon-go-imagery/42a8d6aaad6d95ef0753fe80b4ddd168dd05908e/images/weatherIcon_large_partlyCloudyDay.png" width="60" height="60"><b> Partly Cloudy</b>
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Species</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < 3; i++)
+                {
+                <tr>
+                    <td><img src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/@(Model.partlyCloudyList[i].Pokemon.ToLower()).png" width="40" height="40" /> @Model.partlyCloudyList[i].Pokemon</td>
+                    <td>@Model.partlyCloudyList[i].Count</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive col-md-4">
+        <img src="https://raw.githubusercontent.com/apavlinovic/pokemon-go-imagery/42a8d6aaad6d95ef0753fe80b4ddd168dd05908e/images/weatherIcon_large_overcastDay.png" width="60" height="60"><b> Cloudy</b>
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Species</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < 3; i++)
+                {
+                <tr>
+                    <td><img src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/@(Model.cloudyList[i].Pokemon.ToLower()).png" width="40" height="40" /> @Model.cloudyList[i].Pokemon</td>
+                    <td>@Model.cloudyList[i].Count</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="table-responsive col-md-4">
+        <img src="https://raw.githubusercontent.com/apavlinovic/pokemon-go-imagery/42a8d6aaad6d95ef0753fe80b4ddd168dd05908e/images/weatherIcon_large_windyDay.png" width="60" height="60"><b> Windy</b>
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Species</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < 3; i++)
+                {
+                <tr>
+                    <td><img src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/@(Model.windyList[i].Pokemon.ToLower()).png" width="40" height="40" /> @Model.windyList[i].Pokemon</td>
+                    <td>@Model.windyList[i].Count</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive col-md-4">
+        <img src="https://raw.githubusercontent.com/apavlinovic/pokemon-go-imagery/42a8d6aaad6d95ef0753fe80b4ddd168dd05908e/images/weatherIcon_large_rainDay.png" width="60" height="60"><b> Rainy</b>
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Species</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < 3; i++)
+                {
+                <tr>
+                    <td><img src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/@(Model.rainyList[i].Pokemon.ToLower()).png" width="40" height="40" /> @Model.rainyList[i].Pokemon</td>
+                    <td>@Model.rainyList[i].Count</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive col-md-4">
+        <img src="https://raw.githubusercontent.com/apavlinovic/pokemon-go-imagery/42a8d6aaad6d95ef0753fe80b4ddd168dd05908e/images/weatherIcon_large_snowDay.png" width="60" height="60"><b> Snowy</b>
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Species</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < 3; i++)
+                {
+                <tr>
+                    <td><img src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/@(Model.snowyList[i].Pokemon.ToLower()).png" width="40" height="40" /> @Model.snowyList[i].Pokemon</td>
+                    <td>@Model.snowyList[i].Count</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br /><br /><br />
+<h2>Full List</h2>
+<div class="row body-content">
+    <div class="table-responsive">
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th class="col-md-2">Rank</th>
+                    <th class="col-md-3">Species</th>
+                    <th class="col-md-2">Count</th>
+                    <th class="col-md-2">Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.fullList.Count; i++)
+                {
+                <tr>
+                    <td>@(i+1)</td>
+                    <td><img src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/@(Model.fullList[i].Pokemon.ToLower()).png" width="40" height="40" /> @Model.fullList[i].Pokemon</td>
+                    <td>@Model.fullList[i].Count</td>
+                    <td>@(((double)Model.fullList[i].Count / Model.fullList.Sum(c => c.Count)).ToString("0.0%"))</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
