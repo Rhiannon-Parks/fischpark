@@ -1,0 +1,24 @@
+﻿@model FischPark.Models.PokedexModel
+
+<div id="PokedexUpdaterID" class="row">
+    @using (Ajax.BeginForm("UpdateGet", "Pokedex",
+    new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "PokedexUpdaterForm",
+        OnSuccess = "$('#Male').focus();"
+    }))
+    {
+    <div class="form-horizontal">
+        <div class="form-group">
+        @Html.LabelFor(model => model.Pokedex_ID, htmlAttributes: new { @class = "control-label col-xs-2" })
+        @Html.EditorFor(x => x.Pokedex_ID, new { htmlAttributes = new { @class = "form-control col-xs-3" } })
+        <input type="submit" class="col-xs-1" value="OK" hidden/>
+    </div>
+    </div>
+    }
+</div>
+
+
+<div id="PokedexUpdaterForm" class="row"></div>

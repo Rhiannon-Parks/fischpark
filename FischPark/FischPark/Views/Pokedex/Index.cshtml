@@ -1,0 +1,94 @@
+﻿@model FischPark.Models.PokedexViewModel
+
+@{
+    ViewBag.Title = "BugGirlKeiki's Pokedex";
+}
+
+<style type="text/css">
+    table.table tr td {
+        vertical-align: middle
+    }
+
+    .Male-Yes {
+        background-color: navy;
+        color: white;
+        width: 50px;
+    }
+
+    .Male-No {
+        background-color: white;
+        color: navy;
+        width: 50px;
+    }
+
+    .Male-NA {
+        background-color: black;
+        color: black;
+        width: 50px;
+    }
+
+    .Female-Yes {
+        background-color: crimson;
+        color: white;
+        width: 50px;
+    }
+
+    .Female-No {
+        background-color: white;
+        color: crimson;
+        width: 50px;
+    }
+
+    .Female-NA {
+        background-color: black;
+        color: black;
+        width: 50px;
+    }
+
+    .Shiny-Yes {
+        background-color: gold;
+        color: white;
+        width: 50px;
+    }
+
+    .Shiny-No {
+        background-color: white;
+        color: gold;
+        width: 50px;
+    }
+
+    .Lucky-Yes {
+        background-color: green;
+        color: white;
+        width: 50px;
+    }
+
+    .Lucky-No {
+        background-color: white;
+        color: green;
+        width: 50px;
+    }
+</style>
+
+<h1>BugGirlKeiki's Pokedex</h1>
+
+@foreach (var pokemon in Model.pokedex)
+{
+    <div class="col-md-2">
+        <table class="text-center" width="140" style="border:1px solid #384498;margin-bottom:15px;color:white;background-color:@pokemon.BackgroundColor">
+
+            @*<tr><td colspan="4"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/@(pokemon.Pokedex_ID).png" width="40" height="40" /></td></tr>*@
+            <tr><td colspan="4" style="padding-top:10px;"><img src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/@(pokemon.Name.ToLower()).png" width="50" height="50" /></td></tr>
+            <tr><td colspan="4">@pokemon.Name</td></tr>
+            <tr>
+                <td class="Male-@pokemon.Male">M</td>
+                <td class="Female-@pokemon.Female">F</td>
+                <td class="Shiny-@pokemon.Shiny">S</td>
+                <td class="Lucky-@pokemon.Lucky">L</td>
+            </tr>
+            @*<tr><td colspan="4">&nbsp;</td></tr>*@
+        </table>
+    </div>
+}
+
+<div class="row col-md-12">&nbsp;</div>

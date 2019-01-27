@@ -1,0 +1,28 @@
+﻿@model FischPark.Models.PokedexModel
+
+@{
+    ViewBag.Title = "BugGirlKeiki's Pokedex SECRET UPDATER";
+}
+
+<h1>Update Pokedex</h1>
+
+<div id="PokedexUpdaterMain" class="container">
+
+@Html.Action("UpdateGetID", Model)
+
+</div>
+
+<script>
+
+    function submitForm() {
+        $('#Pokedex_ID').blur(function () {
+            $(this).closest('form').submit();
+        });
+    }
+
+    $(document).ready(function () {
+        submitForm();
+    });
+
+    
+</script>
